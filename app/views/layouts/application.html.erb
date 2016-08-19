@@ -6,9 +6,26 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+        TreeBook
+        </a>
+        <ul class="nav navbar-nav">
+          <li><%= link_to "All Statuses", statuses_path %></li>
+        </ul>
+      </div>
+    </div>
+</nav>
 <body>
 
-<%= yield %>
+
+ <div class="container">
+   <%= yield %>
+ </div>
+
 
 </body>
 </html>
