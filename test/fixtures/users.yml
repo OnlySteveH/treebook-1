@@ -3,3 +3,10 @@ jason:
   last_name: "Seifer"
   email: "jason@tree.com"
   profile_name: "jasonseifer"
+
+
+jim:
+    first_name: "Jim"
+    last_name: "Hook"
+    email: "jim@tree.com"
+    profile_name: "jim"

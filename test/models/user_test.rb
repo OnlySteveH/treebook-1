@@ -26,23 +26,23 @@ class UserTest < ActiveSupport::TestCase
     # user.email ="jason@tree.com"
     # user.password ="123456"
     # user.password_confirmation ="123456"
-    # Pour faire plus court, on utilise ici ce que l'on a entrer dans le users.yml (fixtures)
+    # Pour faire plus court, on utilise ici ce que l'on a entré dans le users.yml (fixtures)
     user.profile_name = users(:jason).profile_name
 
     assert !user.save
     assert !user.errors[:profile_name].empty?
   end
 
-  # test "A user should have a profile name without spaces " do
-  #   user = User.new(first_name: 'Jason', last_name:'Seifer', email: 'jason2@tree.com')
-  #   user.password = user.password_confirmation = '123456'
-  #
-  #   user.profile_name ="My profile name with spaces"
-  #
-  #   assert !user.save
-  #   assert !user.errors[:profile_name].empty?
-  #   assert user.errors[:profile_name].include?("Must be formated correctly.")
-  # end
+  test "A user should have a profile name without spaces " do
+    user = User.new(first_name: 'Jason', last_name:'Seifer', email: 'jason2@tree.com')
+    user.password = user.password_confirmation = '123456'
+
+    user.profile_name ="My profile name with spaces"
+
+    assert !user.save
+    assert !user.errors[:profile_name].empty?
+    assert user.errors[:profile_name].include?("Must be formated correctly.")
+  end
 
   test "A user can have a correctly formated profile name" do
     user = User.new(first_name: 'Jason', last_name:'Seifer', email: 'jason2@tree.com')
