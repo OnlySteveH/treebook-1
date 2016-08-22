@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   mount_uploader :avatar, AvatarUploader
-  
+
   validates_presence_of   :avatar
   validates_integrity_of  :avatar
   validates_processing_of :avatar
