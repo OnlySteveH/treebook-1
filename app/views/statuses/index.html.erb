@@ -5,10 +5,10 @@
 <% @statuses.each do |status| %>
   <div class="status">
     <div class="row">
-      <div class="col-xs-1">
-      <%= image_tag status.user.gravatar_url%> 
+      <div class="col-xs-1 avatar">
+      <%= image_tag status.user.avatar.thumb if status.user.avatar?%>
       </div>
-      <div class="col-xs-7">
+      <div class="col-xs-7 status-content">
         <strong><%= status.user.full_name%></strong>
         <p><%= status.content %></p>
         <div class="meta">

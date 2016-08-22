@@ -2,9 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.avatar {
+  margin-right: 10px;
+}
+
+.status-content {
+  margin-left: 10px;
+}
+
 .status {
   border-bottom: solid 1px #ccc;
-  padding: 5px 0;
+  padding: 10px 0;
 }
 
 .status p {
