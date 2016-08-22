@@ -2,16 +2,29 @@
     <h1>All of the Statuses</h1>
 </div>
 <%= link_to "Post A New Status", new_status_path, class: "btn btn-success"%>
+<br>
+<br>
 <% @statuses.each do |status| %>
+
   <div class="status">
+
     <div class="row">
       <div class="col-xs-1 avatar">
-      <%= image_tag status.user.avatar.thumb if status.user.avatar?%>
+        <%= image_tag status.user.avatar.thumb if status.user.avatar?%>
       </div>
-      <div class="col-xs-7 status-content">
-        <strong><%= status.user.full_name%></strong>
+      <div class="col-xs-7">
+        <h4><%= status.user.full_name%></h4>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-8">
         <p><%= status.content %></p>
-        <div class="meta">
+      </div>
+    </div>
+
+      <div class="row">
+        <div class="col-xs-8">
           <%= link_to time_ago_in_words(status.created_at) + " ago", status %>
           <% if status.user == current_user %>
             <span class="admin">
@@ -21,6 +34,7 @@
           <% end  %>
         </div>
       </div>
-    </div>
-  </div>
+
+
+  </div><!--end how status div-->
 <% end %>
