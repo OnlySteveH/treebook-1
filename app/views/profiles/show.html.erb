@@ -5,6 +5,7 @@
 <% if @statuses %>
   <% @statuses.each do |status| %>
   <div class="well">
+    <%= image_tag status.user.avatar.thumb if status.user.avatar?%>
     <%= status.content %>
     <hr>
     <%= link_to time_ago_in_words(status.created_at), status_path(status) %> ago
