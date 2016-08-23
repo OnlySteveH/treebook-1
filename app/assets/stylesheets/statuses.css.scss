@@ -3,9 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .avatar {
-  margin-right: 10px;
+  margin-right: 15px;
 }
-
+.user-name {
+  margin-left: 15px;
+}
 .status-content {
   margin-left: 10px;
 }
@@ -14,7 +16,10 @@
   border-bottom: solid 1px #ccc;
   padding: 10px 0;
 }
-
+hr .user-list{
+  border-bottom: solid 1px #ccc;
+  padding: 10px 0;
+}
 .status p {
   margin: 4px 0;
 }
@@ -30,3 +35,8 @@
   display:  inline;
 }
 
+.comment-box {
+  background: #AAAAAA;
+  width: 300px;
+  height: auto;
+}

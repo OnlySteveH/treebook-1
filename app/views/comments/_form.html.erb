@@ -1,4 +1,6 @@
-<% simple_form_for comment do |f|%>
-  <%= f.input :content %>
-  <%= f.button :submit %>
+<%= simple_form_for status.comments do |f|%>
+ <%= f.input :content %>
+ <%= f.button :submit %>
 <% end  %>
+
+<!-- I still have to find out what is wrong in this form.... -->

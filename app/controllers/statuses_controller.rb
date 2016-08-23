@@ -3,6 +3,7 @@ class StatusesController < ApplicationController
   before_action :set_status, only: [:show, :edit, :update, :destroy]
 
   def index
+    @users = User.all
     @statuses = Status.all
     @comments = Comment.all
   end
@@ -57,6 +58,6 @@ class StatusesController < ApplicationController
     end
 
     def status_params
-      params.require(:status).permit(:user_id, :content, :comments_attribute[:id, :status_id, :content])
+      params.require(:status).permit(:user_id, :content)
     end
 end

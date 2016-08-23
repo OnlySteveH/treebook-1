@@ -1,56 +1,77 @@
-<div class="page-header">
-    <h1>All of the Statuses</h1>
-</div>
-<%= link_to "Post A New Status", new_status_path, class: "btn btn-success"%>
-<br>
-<br>
-<% @statuses.each do |status| %>
-
-  <div class="status">
-
-    <div class="row">
-      <div class="col-xs-1 avatar">
-        <%= image_tag status.user.avatar.thumb if status.user.avatar?%>
-      </div>
-      <div class="col-xs-7">
-        <h4><%= status.user.full_name%></h4>
-      </div>
+<div class="row whole-page">
+  <div class="row">
+    <div class="page-header">
+    <h1>Hey, welcome on TreeBook</h1>
     </div>
-
-    <div class="row">
-      <div class="col-xs-8">
-       <p><%= simple_format(status.content) %></p>
-      </div>
+  </div>
+  <div class="col-xs-9">
+    <div class="page-header">
+        <h2>All of the Statuses</h2>
     </div>
+    <%= link_to "Post A New Status", new_status_path, class: "btn btn-success"%>
+    <br>
+    <br>
+      <% @statuses.each do |status| %>
+          <div class="status">
 
-      <div class="row">
-        <div class="col-xs-8">
-          <%= link_to time_ago_in_words(status.created_at) + " ago", status %>
-          <% if status.user == current_user %>
-            <span class="admin">
-            |  <%= link_to "Edit", edit_status_path(status) %> |
-               <%= link_to "Delete", status, method: :delete, data: {confirm: "Are you sure?"} %>
-            </span>
-          <% end  %>
-        </div>
-      </div>
+          <div class="row">
+            <div class="col-xs-1 avatar">
+              <%= image_tag status.user.avatar.thumb if status.user.avatar?%>
+            </div>
+            <div class="col-xs-7 user-name">
+              <h4><%= status.user.full_name%></h4>
+            </div>
+          </div>
 
-      <div class="row">
-        <div class="col-xs-12">
-          <p>
-            (3)Comments
-          </p>
-          <% @comments.each do |comment| %>
-            <%= comment.content %>
-          <% end %>
+          <div class="row">
+            <div class="col-xs-8">
+             <p><%= simple_format(status.content) %></p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-8">
+              <%= link_to time_ago_in_words(status.created_at) + " ago", status %>
+              <% if status.user == current_user %>
+                <span class="admin">
+                |  <%= link_to "Edit", edit_status_path(status) %> |
+                   <%= link_to "Delete", status, method: :delete, data: {confirm: "Are you sure?"} %>
+                </span>
+              <% end  %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12">
+              <% status.comments.each do |comment| %>
+                <li class="comment-box">
+                  <%= comment.content %>
+                </li><br>
+
+              <% end %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12">
+                <!-- render form will come here -->
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12">
-          <%= render "comments/form" %>
-        </div>
-      </div>
+      <% end %>
 
 
   </div>
-<% end %>
+  <div class="user-side">
+    <div class="col-xs-3">
+      <div class="page-header">
+        <h2>All Users</h2>
+      </div>
+      <% @users.each do |user| %>
+      <li><h5>
+         <%= user.full_name %>
+      </h5></li>
+      <% end %>
+    </div>
+  </div>
+  </div>
