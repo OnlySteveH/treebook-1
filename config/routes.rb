@@ -9,7 +9,10 @@ Rails.application.routes.draw do
     get 'logout',   to: 'devise/sessions#destroy', as: :logout
   end
 
-  resources :statuses
+  resources :statuses do
+    resources :comments
+  end
+  
   get 'feed', to: "statuses#index", as: :feed
   root "statuses#index"
 

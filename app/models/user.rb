@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
 
 
   has_many :statuses
+  has_many :users
 
   validates :first_name,    presence: true
   validates :last_name,     presence: true
