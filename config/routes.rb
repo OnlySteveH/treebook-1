@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   resources :statuses do
     resources :comments
   end
-  
+  resources :comments
+
+
   get 'feed', to: "statuses#index", as: :feed
   root "statuses#index"
 
