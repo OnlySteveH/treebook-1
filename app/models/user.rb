@@ -11,9 +11,11 @@ class User < ActiveRecord::Base
   validates_integrity_of  :avatar
   validates_processing_of :avatar
 
-
+  has_many :comments
   has_many :statuses
-  has_many :users
+  has_many :user_friendships
+  has_many :friends, through: :user_friendships
+
 
   validates :first_name,    presence: true
   validates :last_name,     presence: true
