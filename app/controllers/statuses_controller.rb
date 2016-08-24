@@ -19,8 +19,10 @@ class StatusesController < ApplicationController
   end
 
   def create
-    @status = Status.new(status_params)
-    @status.user = current_user
+    # @status = Status.new(status_params)
+    # @status.user = current_user
+    @status = current_user.statuses.new(status_params)
+
     respond_to do |format|
       if @status.save
         format.html { redirect_to @status, notice: 'Status was successfully created.' }
@@ -33,6 +35,10 @@ class StatusesController < ApplicationController
   end
 
   def update
+    @status = current_user.statuses.find(params[:id])
+    if params[:status] && params[:status].has_key?(:user_id)
+       params[:status].delete(:user_id)
+    end
     respond_to do |format|
       if @status.update(status_params)
         format.html { redirect_to @status, notice: 'Status was successfully updated.' }
