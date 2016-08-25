@@ -3,11 +3,13 @@ jason:
   last_name: "Seifer"
   email: "jason@tree.com"
   profile_name: "jasonseifer"
+  encrypted_password: $2a$10$Fh/Hm8RxDsuPTeBUr6864.GARlcmt7zF2WspaXGr3BIv2C27N.osq
+
 
 
 jim:
     first_name: "Jim"
-    last_name: "Hook"
+    last_name: "Hoskin"
     email: "jim@tree.com"
     profile_name: "jim"
 

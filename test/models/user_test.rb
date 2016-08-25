@@ -69,6 +69,10 @@ class UserTest < ActiveSupport::TestCase
   test "that creating a friendship based on a user id and a friend id works" do
     UserFriendship.create user_id: users(:jason).id, friend_id: users(:mike).id
     assert users(:jason).friends.include?(users(:mike))
+  end
+
+  test "that calling to_params on a user return the profile_name" do
+    assert_equal"jasonseifer", users(:jason).to_param
 
   end
 end

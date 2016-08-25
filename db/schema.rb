@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160824131416) do
+ActiveRecord::Schema.define(version: 20160824195624) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "content"
@@ -38,8 +38,10 @@ ActiveRecord::Schema.define(version: 20160824131416) do
     t.integer  "friend_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "state"
   end
 
+  add_index "user_friendships", ["state"], name: "index_user_friendships_on_state"
   add_index "user_friendships", ["user_id", "friend_id"], name: "index_user_friendships_on_user_id_and_friend_id"
 
   create_table "users", force: :cascade do |t|

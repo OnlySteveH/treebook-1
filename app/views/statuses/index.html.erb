@@ -16,7 +16,7 @@
 
           <div class="row">
             <div class="col-xs-1 avatar">
-              <%= image_tag status.user.avatar.thumb if status.user.avatar?%>
+              <%= link_to image_tag(status.user.avatar.thumb), profile_path(status.user) if status.user.avatar? %>
             </div>
             <div class="col-xs-7 user-name">
               <h4><%= status.user.full_name%></h4>
